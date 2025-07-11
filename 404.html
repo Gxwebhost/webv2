@@ -1,35 +1,301 @@
-<!-- 404.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>404 Not Found</title>
-  <style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>???</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Plus Jakarta Sans font -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Custom Font -->
+    <link rel="icon" href="https://i.ibb.co/x81BtVR1/sdefee-Photoroom.png" type="image/svg+xml">
+    <style>
+    @font-face {
+        font-family: 'CustomFont';
+        src: url('customfont.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
+    }
+
     body {
-      background-color: #0d0d0d;
-      color: white;
-      font-family: 'Arial', sans-serif;
-      text-align: center;
-      padding: 80px;
+        color: #fff;
+        min-height: 100vh;
+        background-color: #0c0c0c;
+        background-image: 
+            linear-gradient(0deg, rgba(255,255,255,0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px),
+            linear-gradient(90deg, 
+                rgba(13, 0, 55, 0) 0%, 
+                rgba(0, 0, 0, 1) 0%, 
+                rgba(3, 0, 36, 1) 0%, 
+                rgba(36, 13, 117, 1) 100%, 
+                rgba(0, 240, 184, 0.5) 49%, 
+                rgba(0, 93, 140, 1) 50%
+            );
+        background-size: 40px 40px, 40px 40px, auto;
+        background-repeat: repeat, repeat, no-repeat;
+        overflow-x: hidden;
+        position: relative;
+        scrollbar-width: none;
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
     }
-    h1 {
-      font-size: 5rem;
-      margin-bottom: 0.5em;
+
+    ::-webkit-scrollbar {
+        width: 0;
+        height: 0;
     }
-    p {
-      font-size: 1.5rem;
-      margin-bottom: 1em;
+
+    .top-bar-wrapper {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: 1220px;
+        width: 90%;
+        height: 55px;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        z-index: 9999;
+        box-sizing: border-box;
+        overflow: hidden;
     }
-    a {
-      color: #00ccff;
-      text-decoration: none;
-      font-weight: bold;
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 12px;
     }
-  </style>
+
+    .logo-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+    }
+
+    .logo-img {
+        height: 60px;
+        width: auto;
+        object-fit: contain;
+        border-radius: 6px;
+        transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .logo-img:hover {
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 10px rgba(0, 240, 184, 0.7));
+    }
+
+    .logo-name {
+        font-size: 20px;
+        font-weight: 700;
+        color: #fff;
+    }
+
+    .error-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        animation: fadeIn 1s ease-out;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .error-code {
+        font-size: 8rem;
+        font-weight: 900;
+        margin-bottom: 20px;
+        background: linear-gradient(90deg, #fff 0%, #aaa 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: -5px;
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .error-message {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+        color: #aaa;
+        line-height: 1.5;
+    }
+
+    .home-button {
+        display: inline-block;
+        padding: 14px 45px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 8px;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        background: linear-gradient(270deg, rgba(13, 0, 255, 1), rgba(0, 117, 235, 1), rgba(0, 235, 184, 1), rgba(0, 93, 255, 1), rgba(13, 0, 255, 1));
+        background-size: 400% 400%;
+        background-position: 0% 50%;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .home-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 117, 235, 0.4);
+        animation: gradientFlow 18s linear infinite;
+    }
+
+    @keyframes gradientFlow {
+        0% { background-position: 0% 50%; }
+        100% { background-position: 100% 50%; }
+    }
+
+    .floating-elements {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: -1;
+        overflow: hidden;
+    }
+
+    .floating-element {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        filter: blur(40px);
+        opacity: 0.3;
+        animation: float 15s infinite linear;
+    }
+
+    @keyframes float {
+        0% { transform: translate(0, 0) rotate(0deg); }
+        50% { transform: translate(50px, 50px) rotate(180deg); }
+        100% { transform: translate(0, 0) rotate(360deg); }
+    }
+
+    @media (max-width: 768px) {
+        .error-code {
+            font-size: 5rem;
+        }
+        
+        .error-message {
+            font-size: 1.3rem;
+        }
+        
+        .home-button {
+            padding: 12px 30px;
+            font-size: 1rem;
+        }
+    }
+    </style>
 </head>
 <body>
-  <h1>404</h1>
-  <p>Page not found. You might be lost in the void.</p>
-  <a href="/">Return to Home</a>
+    <div class="top-bar-wrapper">
+        <div class="logo-container">
+            <a href="https://nazuro.xyz" class="logo-link">
+                <img src="https://i.ibb.co/tpTf05dh/IMG-3148.png" alt="Nazuro Logo" class="logo-img">
+                <div class="logo-name"></div>
+            </a>
+        </div>
+    </div>
+
+    <div class="floating-elements">
+        <div class="floating-element" style="width: 300px; height: 300px; background: rgba(79, 70, 229, 0.3); top: 10%; left: 10%; animation-duration: 20s;"></div>
+        <div class="floating-element" style="width: 200px; height: 200px; background: rgba(0, 240, 184, 0.3); top: 60%; left: 70%; animation-duration: 25s;"></div>
+        <div class="floating-element" style="width: 400px; height: 400px; background: rgba(139, 0, 255, 0.2); top: 30%; left: 50%; animation-duration: 30s;"></div>
+    </div>
+
+    <div class="error-container" data-animate>
+        <h1 class="error-code">404</h1>
+        <p class="error-message">The page you're looking for doesn't exist.<br></p>
+        <a href="https://nazuro.xyz" class="home-button">Return to Home</a>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const floatingContainer = document.querySelector('.floating-elements');
+        const colors = [
+            'rgba(79, 70, 229, 0.2)',
+            'rgba(0, 240, 184, 0.2)',
+            'rgba(139, 0, 255, 0.2)',
+            'rgba(255, 255, 255, 0.1)'
+        ];
+        
+        for (let i = 0; i < 5; i++) {
+            const size = Math.random() * 200 + 100;
+            const duration = Math.random() * 20 + 10;
+            const delay = Math.random() * 5;
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            
+            const element = document.createElement('div');
+            element.className = 'floating-element';
+            element.style.width = `${size}px`;
+            element.style.height = `${size}px`;
+            element.style.background = color;
+            element.style.top = `${Math.random() * 100}%`;
+            element.style.left = `${Math.random() * 100}%`;
+            element.style.animationDuration = `${duration}s`;
+            element.style.animationDelay = `${delay}s`;
+            
+            floatingContainer.appendChild(element);
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        const animatedElements = document.querySelectorAll('[data-animate]');
+        animatedElements.forEach(el => observer.observe(el));
+    });
+
+    document.addEventListener("keydown", function (e) {
+        if (e.ctrlKey && e.key.toLowerCase() === 'u') {
+            e.preventDefault();
+        }
+        if (e.key === "F12") {
+            e.preventDefault();
+        }
+    });
+
+    document.addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+    });
+    </script>
 </body>
 </html>
