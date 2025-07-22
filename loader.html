@@ -1,1 +1,13 @@
+local player = game.Players.LocalPlayer
 
+local scripts = {
+    [126884695634066] = "https://nazuro.xyz/basketbal",
+    [14259168147] = "https://nazuro.xyz/growagarden"
+}
+
+local url = scripts[game.PlaceId]
+if url then
+    loadstring(game:HttpGet(url))()
+else
+    player:Kick("Game not supported yet")
+end
